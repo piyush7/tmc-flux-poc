@@ -1,0 +1,8 @@
+---
+    apiVersion: source.toolkit.fluxcd.io/v1beta2
+    kind: HelmRepository
+    metadata:
+      name: lamp-helm-repo
+    spec:
+      interval: 120m
+      url: https://lead4good.github.io/lamp-helm-repository

@@ -1,0 +1,21 @@
+---
+    apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    metadata:
+      name: kube-prometheus-stack
+    spec:
+      interval: 5m
+      chart:
+        spec:
+          version: "1.1.5"
+          chart: lamp
+          sourceRef:
+            kind: HelmRepository
+            name: lamp-helm-repo
+          interval: 60m
+      values:
+            podMonitorNamespaceSelector: {}
+            podMonitorSelector:
+              matchLabels:
+                app.kubernetes.io/component: lamp-ns
+    
